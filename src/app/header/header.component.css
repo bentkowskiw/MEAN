@@ -1,1 +1,4 @@
 mat-toolbar {color:"accent";}
+.example-spacer {
+  flex: 1 1 auto;
+}
