@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./post-create.component.css'],
 })
 export class PostCreateComponent {
-  textAreaValue = '';
-  postValue = 'input value...';
+  textAreaValue:string = '';
+  postValue:string = 'input value...';
   onAddPost() {
     this.postValue = this.textAreaValue;
   }
