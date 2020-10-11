@@ -1,5 +1,12 @@
 <h2>Create new post</h2>
+<mat-card>
+<mat-form-field>
+<textarea matInput rows="10" [(ngModel)]="textAreaValue"></textarea>
+<mat-slider min="1" max="100" step="1" value="1"></mat-slider>
+<button mat-stroked-button (click)="onAddPost()">Add post</button>
+</mat-form-field>
 
-<textarea rows="10"></textarea>
-<button (click)="onAddPost()">Add post</button>
-<p>{{ v }}</p>
+
+
+<p>{{ postValue }}</p>
+</mat-card>

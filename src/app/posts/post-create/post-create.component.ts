@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
 
 
+
+
 @Component ({
   selector: 'app-post-create',
   templateUrl:'./post-create.component.html',
 })
 export class PostCreateComponent  {
-  v = "123";
+  textAreaValue = '';
+  postValue='input value...';
 onAddPost() {
-  this.v = "256";
-
+  this.postValue = this.textAreaValue;
 }
 }
