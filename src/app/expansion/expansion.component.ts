@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Post } from '../posts/post.model';
 
 @Component(
   {
@@ -11,8 +12,8 @@ import { Component, Input } from '@angular/core';
 export class ExpansionComponent {
 
   @Input()
-  posts =[];
-  
+  posts:Post[] =[];
+
   step = -1;
 
   setStep(index: number) {
@@ -26,4 +27,8 @@ export class ExpansionComponent {
   prevStep() {
     this.step--;
   }
+
+
+
+
 }

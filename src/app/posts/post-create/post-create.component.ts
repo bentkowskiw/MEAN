@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Post } from '../post.model';
 
 @Component({
   selector: 'app-post-create',
@@ -10,15 +11,19 @@ export class PostCreateComponent {
   description:string = '';
   certainty:number = 0;
   @Output()
-  postCreated = new EventEmitter();
+  postCreated = new EventEmitter<Post>();
 
   onAddPost() {
-    const post = {
+    const post: Post = {
       title:this.title,
       description:this.description,
-      dateCreated:Date.now(),
+      dateCreated:new Date(),
       certainty:this.certainty,
     };
     this.postCreated.emit(post);
   }
+
+  formatLabel(value: number) {
+    return value + '%';
+}
 }
