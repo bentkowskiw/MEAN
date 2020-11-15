@@ -1,26 +1,30 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { Post } from '../post.model';
+import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
+import { PostService } from '../post.service';
+
 
 @Component({
   selector: 'app-post-create',
   templateUrl: './post-create.component.html',
   styleUrls: ['./post-create.component.css'],
 })
-export class PostCreateComponent {
+export class PostCreateComponent  {
   title:string = '';
   description:string = '';
   certainty:number = 0;
-  @Output()
-  postCreated = new EventEmitter<Post>();
 
-  onAddPost() {
-    const post: Post = {
-      title:this.title,
-      description:this.description,
-      dateCreated:new Date(),
-      certainty:this.certainty,
-    };
-    this.postCreated.emit(post);
+
+  constructor(public postService: PostService){}
+
+
+
+  onAddPost(postForm:NgForm) {
+    if(postForm.invalid)
+     return;
+
+    this.postService.addPost(postForm.value.title,postForm.value.description,postForm.value.certainty);
+
   }
 
   formatLabel(value: number) {

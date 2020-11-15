@@ -2,17 +2,17 @@
   <mat-expansion-panel *ngFor="let post of posts; index as i; first as isFirst; last as isLast" [expanded]="step === i" (opened)="setStep(i)" hideToggle>
     <mat-expansion-panel-header>
       <mat-panel-title>
-        {{post.title}}
+     {{post.title}}
       </mat-panel-title>
       <mat-panel-description>
-        {{   post.dateCreated.toDateString()}}
+        {{post.dateCreated}}
 
       </mat-panel-description>
     </mat-expansion-panel-header>
 
 
       <p>  {{post.description}}</p>
-      <mat-slider  min="1" max="100" disabled="true" thumbLabel tickInterval="10" value="{{post.certainty}}" ></mat-slider>
+      <mat-slider  min="1" max="5" disabled="true" thumbLabel tickInterval="0.5" value="{{post.certainty}}" ></mat-slider>
     <mat-action-row>
       <button *ngIf="!isFirst" mat-button color="warn" (click)="prevStep()">Previous</button>
       <button *ngIf="!isLast" mat-button color="primary" (click)="nextStep()">Next</button>
@@ -21,4 +21,5 @@
 
 
 </mat-accordion>
-<h3 *ngIf="posts.length <=0">Brak wpisów</h3>
+<p class="mat-h1" *ngIf="posts.length==0">Brak wpisów</p>
+

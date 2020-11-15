@@ -1,5 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Post } from '../posts/post.model';
+import  {PostService } from '../posts/post.service';
 
 @Component(
   {
@@ -9,10 +11,23 @@ import { Post } from '../posts/post.model';
 
   }
 )
-export class ExpansionComponent {
+export class ExpansionComponent implements OnInit, OnDestroy {
 
-  @Input()
-  posts:Post[] =[];
+posts:Post[];
+postsSubscription: Subscription;
+
+  constructor(public postService: PostService) {}
+
+  ngOnInit()  {
+    this.posts = this.postService.getPosts();
+    this.postsSubscription =  this.postService.getPostsListener().subscribe((posts: Post[])=>{
+      this.posts = posts;
+    });
+  }
+
+  ngOnDestroy() {
+    this.postsSubscription.unsubscribe();
+  }
 
   step = -1;
 
