@@ -24,7 +24,7 @@ export class PostCreateComponent  {
      return;
 
     this.postService.addPost(postForm.value.title,postForm.value.description,postForm.value.certainty);
-
+    postForm.resetForm();
   }
 
   formatLabel(value: number) {
