@@ -1,4 +1,5 @@
-mat-toolbar {color:"accent";}
+mat-toolbar {color:"accent"; font-family:"Playfair Display";}
 .example-spacer {
   flex: 1 1 auto;
+
 }

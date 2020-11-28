@@ -1,4 +1,4 @@
-<mat-accordion *ngIf="posts.length>0" class="example-headers-align">
+<mat-accordion *ngIf="posts.length>0" >
   <mat-expansion-panel *ngFor="let post of posts; index as i; first as isFirst; last as isLast" [expanded]="step === i" (opened)="setStep(i)" hideToggle>
     <mat-expansion-panel-header>
       <mat-panel-title>
@@ -23,5 +23,5 @@
 
 
 </mat-accordion>
-<p class="mat-h1" *ngIf="posts.length==0">Brak wpisów</p>
+<p  *ngIf="posts.length==0">Brak wpisów</p>
 
